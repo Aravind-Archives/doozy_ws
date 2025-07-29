@@ -11,7 +11,7 @@ This task involves path planning and execution of a trajectory over a workobject
 
 ### 1. Robot Setup (same as Task 2 & 3)
 
-* Design in SolidWorks → S2URDF conversion → Add virtual joint.
+* Design in SolidWorks → SW2URDF conversion → Add virtual joint.
 * MoveIt setup with MoveIt Setup Assistant.
 * Tested joint simulation using `demo_gazebo.launch`.
 
