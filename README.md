@@ -64,7 +64,7 @@ This task involves building a custom 6-DOF robotic manipulator with an integrate
 ### 1. Robot Design and URDF Creation
 
 * Designed a custom **6-DOF robot** using **SolidWorks** (from part modeling to full assembly).
-* Used the **S2URDF** plugin to generate a ROS-compatible **URDF**.
+* Used the **SW2URDF** plugin to generate a ROS-compatible **URDF**.
 
 ### 2. URDF Enhancement
 
