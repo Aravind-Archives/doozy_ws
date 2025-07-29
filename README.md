@@ -1,7 +1,7 @@
 # doozy_ws
 Cartesian Path Planning and Perception-Based Manipulation
 
-# Static Path Planning Task (Task 1)
+# Static Path Planning
 
 ## Overview
 
