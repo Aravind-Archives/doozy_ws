@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<robot name="arm">
+
+    <link name="world"/>
+    
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+            <mass value="5.0"/>
+            <inertia ixx="0.054166667" ixy="0.0" ixz="0.0" iyy="0.054166667" iyz="0.0" izz="0.1"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.2" length="0.1"/>
+            </geometry>
+            <material name="gray">
+                <color rgba="0.5 0.5 0.5 1"/>
+            </material>        
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.2" length="0.1"/>
+            </geometry> 
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>          
+        </collision>      
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+    
+    <link name="link_1">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.45" rpy="0.0 0.0 0.0"/>
+            <mass value="3.5"/>
+            <inertia ixx="0.247916667" ixy="0.0" ixz="0.0" iyy="0.247916667" iyz="0.0" izz="0.247916667"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0.0 0.0 -0.45" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.2 0.2 0.9"/>
+            </geometry>  
+            <material name="yellow">
+                <color rgba="0.9 0.9 0 1"/>
+            </material>         
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.2 0.2 0.9"/>
+            </geometry> 
+            <origin xyz="0.0 0.0 -0.45" rpy="0.0 0.0 0.0"/>          
+        </collision>      
+    </link>
+
+    <joint name="link1_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="link_1"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="0 0 1" rpy="0 0 0"/>
+    </joint>
+
+    <link name="link_2">
+        <inertial>
+            <origin xyz="0 0 -0.35" rpy="0 0 0"/>
+            <mass value="2.5"/>
+            <inertia ixx="0.138666667" ixy="0.0" ixz="0.0" iyy="0.138666667" iyz="0.0" izz="0.138666667"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 -0.35" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.16 0.16 0.8"/>
+            </geometry>  
+            <material name="gray">
+                <color rgba="0.4 0.4 0.4 1"/>
+            </material>        
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.16 0.16 0.8"/>
+            </geometry>   
+            <origin xyz="0 0 -0.35" rpy="0 0 0"/>        
+        </collision>      
+    </link>
+
+    <joint name="link2_joint" type="continuous">
+        <parent link="link_1"/>
+        <child link="link_2"/>
+        <axis xyz="1 0 0"/>
+        <origin xyz="0.18 0 -0.05" rpy="1.5708 0 0"/>
+        
+    </joint>
+    
+    <link name="link_3">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.35" rpy="0.0 0.0 0.0"/>
+            <mass value="1.5"/>
+            <inertia ixx="0.06305" ixy="0.0" ixz="0.0" iyy="0.06305" iyz="0.0" izz="0.06305"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0.0 0.0 -0.35" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.12 0.12 0.7"/>
+            </geometry>  
+            <material name="yellow">
+                <color rgba="0.6 0.7 0 1"/>
+            </material>       
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.12 0.12 0.7"/>
+            </geometry> 
+            <origin xyz="0.0 0.0 -0.35" rpy="0.0 0.0 0.0"/>         
+        </collision>      
+    </link>
+
+    <joint name="link3_joint" type="continuous">
+        <parent link="link_2"/>
+        <child link="link_3"/>
+        <axis xyz="1 0 0"/>
+        <origin xyz="-0.14 0 -0.65" rpy="0 0 0"/> 
+    </joint>
+
+    <link name="link_4">
+        <inertial>
+            <origin xyz="0 0 -0.7" rpy="0.0 0.0 0.0"/>
+            <mass value="0.5"/>
+            <inertia ixx="0.001354167" ixy="0.0" ixz="0.0" iyy="0.001354167" iyz="0.0" izz="0.0025"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 -0.7" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0.2 1 1"/>
+            </material>          
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.05"/>
+            </geometry> 
+            <origin xyz="0 0 -0.7" rpy="0.0 0.0 0.0"/>          
+        </collision>      
+    </link>
+
+    <joint name="link4_joint" type="continuous">
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57"/>
+    </joint>
+
+    <link name="link_5">
+        <inertial>
+            <origin xyz="0 0.05 -0.76" rpy="0.0 0.0 0.0"/>
+            <mass value="0.25"/>
+            <inertia ixx="0.000233333" ixy="0.0" ixz="0.0" iyy="0.000233333" iyz="0.0" izz="0.00005"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0.05 -0.76" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1 0.2 0.2 1"/>
+            </material>  
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry>  
+            <origin xyz="0 0.05 -0.76" rpy="0.0 0.0 0.0"/>        
+        </collision> 
+    </link>
+
+    <joint name="link5_joint" type="fixed">
+        <parent link="link_4"/>
+        <child link="link_5"/>
+    </joint>
+
+    <link name="link_6">
+        <inertial>
+            <origin xyz="0 0.05 -0.76" rpy="0.0 0.0 0.0"/>
+            <mass value="0.25"/>
+            <inertia ixx="0.000233333" ixy="0.0" ixz="0.0" iyy="0.000233333" iyz="0.0" izz="0.00005"/>
+        </inertial>
+
+        <visual>
+            <origin xyz="0 -0.05 -0.76" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1 0.2 0.2 1"/>
+            </material>  
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.02" length="0.1"/>
+            </geometry> 
+            <origin xyz="0 -0.05 -0.76" rpy="0.0 0.0 0.0"/>         
+        </collision>  
+
+    </link>
+
+    <joint name="link6_joint" type="fixed">
+        <parent link="link_4"/>
+        <child link="link_6"/>
+    </joint> 
+    
+<!-- gazebo color-->
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="link_1">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+    <gazebo reference="link_2">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="link_3">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+    <gazebo reference="link_4">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="link_5">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="link_6">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+<!-- Transmissions-->
+    
+    <transmission name ="t_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link1_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+    <transmission name ="t_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link2_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name ="t_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link3_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name ="t_4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="link4_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor_4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    
+
+    <gazebo>
+        <plugin name="control" filename="libgazebo_ros_control.so"/>
+    </gazebo>
+</robot>

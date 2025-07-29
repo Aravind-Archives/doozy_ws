@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/robot/doozy_ws/devel/include/**",
+        "/home/robot/ros_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/robot/ros_ws/src/linear_pos/include/**",
+        "/home/robot/doozy_ws/src/robot_controller/include/**",
+        "/home/robot/ros_ws/src/ros_trials/include/**",
+        "/home/robot/doozy_ws/src/rosserial/rosserial_server/include/**",
+        "/home/robot/doozy_ws/src/rosserial/rosserial_test/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
